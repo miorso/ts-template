@@ -1,0 +1,5 @@
+.prettierrc
+.idea
+.husky
+tsconfig.json
+src
