@@ -1,0 +1,67 @@
+{
+	"name": "@miorso/ts-template",
+	"version": "1.0.0",
+	"description": "Template repository for TypeScript projects",
+	"keywords": [
+		"typescript",
+		"ts",
+		"template"
+	],
+	"homepage": "https://github.com/miorso/ts-template#readme",
+	"bugs": {
+		"url": "https://github.com/miorso/ts-template/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/miorso/ts-template.git"
+	},
+	"license": "MIT",
+	"author": "Mikel Orbea",
+	"type": "module",
+	"exports": {
+		".": "./dist/index.js",
+		"./package.json": "./package.json"
+	},
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"build": "tsup src/index.ts --format esm --dts",
+		"clean": "rm -rf dist",
+		"lint": "eslint --max-warnings=0",
+		"lint:fix": "eslint --fix .",
+		"prepare": "husky",
+		"prettier": "prettier --check .",
+		"prettier:fix": "prettier --write .",
+		"publish": "clean-publish",
+		"sort": "npx sort-package-json",
+		"update": "npx npm-check-updates -u && npm install"
+	},
+	"lint-staged": {
+		"**/*": [
+			"prettier --write --ignore-unknown"
+		]
+	},
+	"devDependencies": {
+		"@miorso/eslint-config": "^1.0.5",
+		"@miorso/prettier-config": "^1.0.3",
+		"@miorso/tsconfig": "^1.0.7",
+		"clean-publish": "^5.1.0",
+		"eslint": "^9.20.1",
+		"husky": "^9.1.7",
+		"lint-staged": "^15.4.3",
+		"prettier": "^3.5.1",
+		"tsup": "^8.3.6",
+		"typescript": "^5.7.3"
+	},
+	"peerDependencies": {
+		"eslint": ">= 9",
+		"prettier": ">= 3",
+		"typescript": ">= 5"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}
